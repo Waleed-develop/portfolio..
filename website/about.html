@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Aramis Enterprise Solutions</title>
+  <style>
+    :root {
+      --deep-blue: #03003f;
+      --navy: #000d1a;
+      --accent-gold: #f7c14b;
+      --text-light: #f2f2f2;
+      --glass-bg: rgba(0, 0, 0, 0.5);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a2540 0%, #07213b 100%);
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header {
+      background: var(--deep-blue);
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 15px rgba(203, 204, 206, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid #5ea3ff;
+      animation: slideDown 0.8s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+    }
+
+    nav a {
+      color: var(--accent-gold);
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+      text-shadow: 0 0 4px rgba(117, 104, 74, 0.6);
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ffffff;
+      text-shadow: 0 0 10px var(--accent-gold), 0 0 20px var(--accent-gold);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      background: var(--accent-gold);
+      bottom: -6px;
+      left: 0;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 4rem auto 6rem;
+      padding: 0 1.5rem;
+      animation: slideUpFade 1s ease forwards;
+    }
+
+    @keyframes slideUpFade {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: var(--accent-gold);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1.4px;
+      text-shadow: 0 0 8px var(--accent-gold), 0 0 15px var(--accent-gold);
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      animation: fadeInSection 1s ease forwards;
+    }
+
+    section:nth-child(2) { animation-delay: 0.3s; }
+    section:nth-child(3) { animation-delay: 0.6s; }
+    section:nth-child(4) { animation-delay: 0.9s; }
+    section:nth-child(5) { animation-delay: 1.2s; }
+
+    @keyframes fadeInSection {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    h2 {
+      color: var(--accent-gold);
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      font-size: 1.6rem;
+      text-shadow: 0 0 6px var(--accent-gold), 0 0 12px var(--accent-gold);
+    }
+
+    p {
+      color: var(--text-light);
+      font-size: 1.125rem;
+      line-height: 1.7;
+      text-align: justify;
+      text-shadow: 0 0 2px #163a7d44;
+    }
+
+    .highlight {
+      color: #80b3ff;
+      font-weight: 700;
+      text-shadow: 0 0 6px #80b3ffbb;
+    }
+
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 2rem;
+    }
+
+    .industry-grid div {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #5ea3ff33;
+      transition: all 0.3s;
+    }
+
+    .industry-grid img {
+      width: 45px;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 5px #5ea3ff);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.9rem;
+      color: #9bb0ffaa;
+      background: var(--navy);
+      border-top: 1px solid #0a2a75;
+      user-select: none;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @media (max-width: 600px) {
+      nav { gap: 1.5rem; }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.3rem; }
+      p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>About Aramis Enterprise Solutions</h1>
+
+    <section>
+      <h2>Our Mission</h2>
+      <p>
+        We strive to bridge the gap between complex business challenges and technological advancements by providing comprehensive enterprise solutions such as ERP, HRMS, CRM, and bespoke software development. Our mission is to simplify automation and digital transformation for companies across diverse industries.
+      </p>
+    </section>
+
+    <section>
+      <h2>What We Do</h2>
+      <p>
+        Our expertise spans a broad spectrum of IT services including business process automation, customer relationship management, human resources management systems, IT service management, and mobile application development. We partner with clients to understand their unique needs and deliver scalable, secure, and user-friendly solutions.
+      </p>
+    </section>
+
+    <section>
+      <h2>Our Values</h2>
+      <p>
+        At Aramis, we value <strong>innovation, integrity, and client success</strong>. We foster a culture of continuous learning and adapt to the latest technologies to keep our solutions cutting-edge. Our customer-centric approach ensures that we build lasting relationships founded on trust and transparency.
+      </p>
+    </section>
+
+    <section>
+      <h2>Why Choose Us?</h2>
+      <p>
+        With extensive industry experience and a dedicated team of professionals, Aramis Enterprise Solutions stands out as a reliable technology partner. Our commitment to quality, timely delivery, and post-implementation support has earned us the trust of numerous satisfied clients in Bahrain and beyond.
+      </p>
+    </section>
+
+    <section>
+      <h2>Industry Expertise</h2>
+      <p>
+        Our systematic and algorithmic approach enables us to truly understand the unique demands of focus industries and to effectively collaborate with our customers in creating solutions that incorporate best industry practices. We have automated major industry verticals with the help of dedicated experience and flexible products.
+      </p>
+
+      <div class="industry-grid">
+        <div><img src="https://flagcdn.com/w80/pk.png" alt="Government" /><p class="highlight">Government</p></div>
+        <div><img src="https://cdn-icons-png.flaticon.com/512/2250/2250461.png" alt="Real Estate" /><p class="highlight">Real Estate</p></div>
+        <div><img src="https://cdn-icons-png.flaticon.com/512/3391/3391553.png" alt="Manufacturing" /><p class="highlight">Manufacturing</p></div>
+        <div><img src="https://cdn-icons-png.flaticon.com/512/809/809957.png" alt="Construction" /><p class="highlight">Construction</p></div>
+        <div><img src="https://cdn-icons-png.flaticon.com/512/2769/2769339.png" alt="Healthcare" /><p class="highlight">Health Care</p></div>
+        <div><img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Retail" /><p class="highlight">Retail</p></div>
+        <div><img src="https://cdn-icons-png.flaticon.com/512/1421/1421060.png" alt="Trading & Distribution" /><p class="highlight">Trading & Distribution</p></div>
+        <div><img src="https://cdn-icons-png.flaticon.com/512/1907/1907134.png" alt="BFSI" /><p class="highlight">BFSI</p></div>
+        <div><img src="https://cdn-icons-png.flaticon.com/512/1075/1075069.png" alt="Automotive" /><p class="highlight">Automotive</p></div>
+        <div><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Services" /><p class="highlight">Services</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Aramis Enterprise Solutions. All rights reserved.
+  </footer>
+</body>
+</html>

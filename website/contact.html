@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Aramis Enterprise Solutions</title>
+  <style>
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --deep-blue: #03003f;
+      --navy: #000d1a;
+      --accent-gold: #f7c14b;
+      --text-light: #f2f2f2;
+      --glass-bg: rgba(0, 0, 0, 0.5);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a2540 0%, #07213b 100%);
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    header {
+      background: var(--deep-blue);
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 15px rgba(203, 204, 206, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid #5ea3ff;
+      animation: slideDown 0.8s ease forwards;
+    }
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+    }
+    nav a {
+      color: var(--accent-gold);
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+      text-shadow: 0 0 4px rgba(117, 104, 74, 0.6);
+    }
+    nav a:hover,
+    nav a.active {
+      color: #ffffff;
+      text-shadow: 0 0 10px var(--accent-gold), 0 0 20px var(--accent-gold);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      background: var(--accent-gold);
+      bottom: -6px;
+      left: 0;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 4rem auto 6rem;
+      padding: 0 1.5rem;
+      animation: slideUpFade 1s ease forwards;
+    }
+    @keyframes slideUpFade {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: var(--accent-gold);
+      text-align: center;
+      margin-bottom: 2rem;
+      letter-spacing: 1.4px;
+      text-shadow: 0 0 8px #5ea3ff88;
+    }
+
+    form {
+      background: #0f3a85;
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 6px 25px rgba(27, 71, 166, 0.7);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    label {
+      color: #bdd7ff;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      user-select: none;
+    }
+
+    input, textarea {
+      background: #06265a;
+      border: 1.5px solid #5ea3ff;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      color: var(--text-light);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+      min-height: 40px;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #80b3ff;
+      box-shadow: 0 0 10px #80b3ffbb;
+      background: #073475;
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    button {
+      background: var(--accent-gold);
+      border: none;
+      padding: 0.9rem 1.8rem;
+      color: var(--deep-blue);
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      align-self: center;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 0 15px var(--accent-gold);
+      user-select: none;
+    }
+    button:hover {
+      background: #ffea70;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #fff56e;
+    }
+
+    .contact-info {
+      margin-top: 3rem;
+      color: #d6e0ffcc;
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: center;
+      user-select: text;
+    }
+    .contact-info strong {
+      color: #80b3ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.9rem;
+      color: #9bb0ffaa;
+      background: var(--navy);
+      border-top: 1px solid #0a2a75;
+      user-select: none;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav {
+        gap: 1.5rem;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+      form {
+        padding: 1.5rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="solutions.html">Our Services</a>
+      <a href="contact.html" class="active">Contact Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contact Us</h1>
+
+    <form action="#" method="post" novalidate>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="Subject of your message" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info" aria-label="Company contact details">
+      <p><strong>Address:</strong> Building 123, Manama, Bahrain</p>
+      <p><strong>Phone:</strong> +973 1234 5678</p>
+      <p><strong>Email:</strong> info@aramisenterprise.com</p>
+      <p><strong>Working Hours:</strong> Sun - Thu, 9:00 AM - 6:00 PM</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Aramis Enterprise Solutions. All rights reserved.
+  </footer>
+
+</body>
+</html>
+

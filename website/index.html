@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aramis Enterprise Solutions</title>
+  <style>
+    :root {
+      --deep-blue: #03003f;
+      --navy: #000d1a;
+      --accent-gold: #f7c14b;
+      --text-light: #f2f2f2;
+      --glass-bg: rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #165496, #002b4f);
+      color: var(--text-light);
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .tech-background {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: -1;
+      background: radial-gradient(circle at center, #5ea3ff55, transparent 70%);
+      animation: pulse 6s ease-in-out infinite;
+      filter: blur(90px);
+    }
+
+    @keyframes pulse {
+      0%, 100% {opacity: 0.25;}
+      50% {opacity: 0.45;}
+    }
+
+    header {
+      background-color: var(--deep-blue);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      animation: fadeInDown 1s ease-out;
+      box-shadow: 0 0 15px #5ea3ff;
+      border-bottom: 1px solid #5ea3ff;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: var(--accent-gold);
+      text-shadow: 0 0 8px var(--accent-gold), 0 0 15px var(--accent-gold);
+    }
+
+    nav a {
+      color: var(--accent-gold);
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s, text-shadow 0.3s ease;
+      text-shadow: 0 0 4px rgba(117, 104, 74, 0.6);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gold);
+      transition: width 0.3s ease;
+      box-shadow: 0 0 6px var(--accent-gold);
+      border-radius: 2px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #fff;
+      text-shadow: 0 0 10px var(--accent-gold), 0 0 20px var(--accent-gold);
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 30px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle at center, #5ea3ff55, transparent 80%);
+      transform: translateX(-50%);
+      filter: blur(120px);
+      animation: floatPulse 4.5s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    @keyframes floatPulse {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translateX(-50%) translateY(20px);
+        opacity: 0.6;
+      }
+    }
+
+    .hero-content {
+      z-index: 2;
+      max-width: 800px;
+      color: var(--accent-gold);
+      text-shadow: 0 0 8px var(--accent-gold), 0 0 20px var(--accent-gold);
+    }
+
+    .hero h2 {
+      font-size: 2.7rem;
+      margin-bottom: 20px;
+      animation: slideUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+      animation: fadeIn 2s ease-in forwards;
+      animation-delay: 0.7s;
+      opacity: 0;
+    }
+
+    footer {
+      background-color: var(--navy);
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 60px;
+      animation: fadeIn 2s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      .hero h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="tech-background" aria-hidden="true"></div>
+
+  <header>
+    <h1>Aramis Enterprise Solutions</h1>
+    <nav>
+      <a href="index.html" class="active" aria-current="page">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Empowering Your Business Through Digital Transformation</h2>
+      <p>
+        Aramis Enterprise Solutions is a Bahrain-based IT company specializing in automation through ERP, HRMS, CRM & custom-built software.
+        We partner with leading technology providers to deliver scalable, future-ready systems that drive efficiency and success.
+      </p>
+    </div>
+  </section>
+    
+
+  
+  <footer>
+    &copy; 2025 Aramis Enterprise Solutions. All rights reserved.
+  </footer>
+</body>
+</html>
